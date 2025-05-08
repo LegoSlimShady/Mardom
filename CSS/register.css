@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/background.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    width: 750px;
+    background-color: rgba(137, 137, 137, 0.123);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(229, 229, 229, 0.4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.064);
+    border-radius: 10px;
+    color: white;
+    padding: 40px 35px 55px;
+    margin: 0 150px;
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .input-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input-box .input-field{
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+}
+
+.input-box .input-field input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.input-box .input-field input::placeholder{
+    color: white;
+}
+
+.input-box .input-field i{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper labe{
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 0 23px;
+}
+
+.wrapper label input{
+    accent-color: white;
+    margin: 5px;
+}
+
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: white;
+    border: none;
+    outline: none;
+    border: 6px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.064);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: .3s;
+}
+
+.wrapper .btn:hover{
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.wrapper input:hover{
+    border: 2px solid rgb(249, 231, 255);
+}
+
+@media (max-width: 576px){
+    .input-box .input-field{
+        width: 100%;
+        margin: 10px 0;
+    }
+}
