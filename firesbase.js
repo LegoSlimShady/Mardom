@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js';
-import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js'
+import { getFirestore , collection, addDoc } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,11 +22,16 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-function register() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const username = document.getElementById('username').value;
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
+const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+const username = document.getElementById('username').value;
+
+
+function register() {
+    
     createUserWithEmailAndPassword(auth, email, password, username)
         .then((userCredential) => {
             // Signed up successfully
@@ -40,6 +45,18 @@ function register() {
             alert('Sign up error:'+ error.message);
         });
 }
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    email:email,
+    username: username
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+
+
 // click register button 
 document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('registerButton');
